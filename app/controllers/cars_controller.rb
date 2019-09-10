@@ -6,8 +6,4 @@ class CarsController < ApplicationController
   def inventory
 
   end
-
-  def about
-
-  end
 end
