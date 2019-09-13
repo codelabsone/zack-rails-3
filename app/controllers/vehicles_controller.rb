@@ -1,9 +1,13 @@
 class VehiclesController < ApplicationController
   def index
-
+    @vehicles = Vehicle.all
   end
 
-  def inventory
+  def new
+    @vehicle = Vehicle.new
+  end
 
+  def edit
+    @vehicle = Vehicle.find(params[:id])
   end
 end
