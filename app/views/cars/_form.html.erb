@@ -1,0 +1,65 @@
+<%= form_for(@car) do |f| %>
+<p>
+  <%= f.label :year %><br>
+  <%= f.text_field :year, autofocus: true %>
+</p>
+<p>
+  <%= f.label :make %><br>
+  <%= f.text_field :make %>
+</p>
+<p>
+  <%= f.label :model %><br>
+  <%= f.text_field :model %>
+</p>
+<p>
+  <%= f.label :price %><br>
+  <%= f.text_field :price %>
+</p>
+<p>
+  <%= f.label :new %><br>
+  <%= f.check_box :new %>
+</p>
+<p>
+  <%= f.label :mileage %><br>
+  <%= f.text_field :mileage %>
+</p>
+<p>
+  <%= f.label :tranmission %><br>
+  <%= f.text_field :tranmission %>
+</p>
+<p>
+  <%= f.label :engine %><br>
+  <%= f.text_field :engine %>
+</p>
+<p>
+  <%= f.label :drivetrain %><br>
+  <%= f.text_field :drivetrain %>
+</p>
+<p>
+  <%= f.label :vin %><br>
+  <%= f.text_field :vin %>
+</p>
+<p>
+  <%= f.label :fuel_type %><br>
+  <%= f.text_field :fuel_type %>
+</p>
+<p>
+  <%= f.label :body_style %><br>
+  <%= f.text_field :body_style %>
+</p>
+<p>
+  <%= f.label :ext_color %><br>
+  <%= f.text_field :ext_color %>
+</p>
+<p>
+  <%= f.label :int_color %><br>
+  <%= f.text_field :int_color %>
+</p>
+<p>
+  <%= f.label :mpg %><br>
+  <%= f.text_field :mpg %>
+</p>
+<p>
+  <%= f.submit %> |
+  <%= link_to "Cancel", cars_path %>
+</p>
