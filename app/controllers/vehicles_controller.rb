@@ -13,6 +13,8 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.save
+    redirect_to @vehicle
   end
 
   private
@@ -20,5 +22,5 @@ class VehiclesController < ApplicationController
   def vehicle_params
     params.require(:vehicle).permit(:year, :make, :model, :price, :new, :mileage, :transmission, :engine, :drivetrain, :vin, :fuel_type, :body_style, :ext_color, :int_color, :mpg)
   end
-  
+
 end
