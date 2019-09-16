@@ -1,10 +1,10 @@
-<h1>Cars will be shown here</h1>
+<h1>Inventory</h1>
 
 <%= link_to "Add A Vehicle", new_vehicle_path %><br>
 <div class="container-fluid">
   <div class="row text-center text-lg-left">
     <% @vehicles.each do |vehicle| %>
-        <div class="col-lg-4 col-md-6 col-12">
+        <div class="col-lg-4 col-md-6 col-12 text-center">
           <%= link_to(vehicle) do %>
           <%= image_tag 'coming_soon.jpeg', :class => "img-fluid img-thumbnail" %><br>
           <span class="text-muted">
