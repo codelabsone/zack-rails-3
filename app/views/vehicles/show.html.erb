@@ -2,6 +2,11 @@
   <header>
     <h1><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h1>
   </header>
+  <% if @vehicle.image.attached? %>
+    <%= image_tag @vehicle.image, :class => "img-fluid img-thumbnail" %>
+  <% else %>
+    <%= image_tag 'coming_soon.jpeg', :class => "img-fluid img-thumbnail" %><br>
+  <% end %>
   <br>
   <h4>Price:</h4>
   <p><%= number_to_currency(@vehicle.price) %></p>
@@ -27,4 +32,5 @@
   <p><%= @vehicle.int_color %></p>
   <h4>MPG:</h4>
   <p><%= @vehicle.mpg %></p>
+  <%= link_to "Edit", edit_vehicle_path %>
 </article>
