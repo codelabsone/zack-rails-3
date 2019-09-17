@@ -1,0 +1,30 @@
+<article>
+  <header>
+    <h1><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h1>
+  </header>
+  <br>
+  <h4>Price:</h4>
+  <p><%= number_to_currency(@vehicle.price) %></p>
+  <h4>New or Pre-Owned:</h4>
+  <p><%= @vehicle.new? %></p>
+  <h4>Mileage:</h4>
+  <p><%= @vehicle.mileage %> miles</p>
+  <h4>Transmission:</h4>
+  <p><%= @vehicle.transmission %></p>
+  <h4>Engine:</h4>
+  <p><%= @vehicle.engine %></p>
+  <h4>Drivetrain:</h4>
+  <p><%= @vehicle.drivetrain %></p>
+  <h4>VIN:</h4>
+  <p><%= @vehicle.vin %></p>
+  <h4>Fuel Type:</h4>
+  <p><%= @vehicle.fuel_type %></p>
+  <h4>Body Style:</h4>
+  <p><%= @vehicle.body_style %></p>
+  <h4>Exterior Color:</h4>
+  <p><%= @vehicle.ext_color %></p>
+  <h4>Interior Color:</h4>
+  <p><%= @vehicle.int_color %></p>
+  <h4>MPG:</h4>
+  <p><%= @vehicle.mpg %></p>
+</article>
