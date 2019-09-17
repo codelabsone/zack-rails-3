@@ -10,9 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_30_005402) do
+ActiveRecord::Schema.define(version: 2019_09_17_000248) do
 
-  create_table "cars", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
+    t.string "image"
+    t.string "image_uid"
+    t.string "image_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "vehicle_id"
+    t.index ["image"], name: "index_photos_on_image"
+    t.index ["image_name"], name: "index_photos_on_image_name"
+    t.index ["vehicle_id"], name: "index_photos_on_vehicle_id"
+  end
+
+  create_table "photos_posts", force: :cascade do |t|
+    t.integer "photo_id"
+    t.integer "vehicle_id"
+    t.index ["photo_id"], name: "index_photos_posts_on_photo_id"
+    t.index ["vehicle_id"], name: "index_photos_posts_on_vehicle_id"
+  end
+
+  create_table "vehicles", force: :cascade do |t|
     t.integer "year"
     t.string "make"
     t.string "model"
@@ -32,4 +51,5 @@ ActiveRecord::Schema.define(version: 2019_08_30_005402) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "photos", "vehicles"
 end
