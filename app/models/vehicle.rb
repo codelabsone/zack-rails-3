@@ -3,5 +3,5 @@ class Vehicle < ApplicationRecord
     (new) ? "New" : "Pre-Owned"
   end
 
-  has_one_attached :image
+  has_many_attached :images
 end

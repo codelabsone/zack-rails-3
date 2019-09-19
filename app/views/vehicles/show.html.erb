@@ -2,8 +2,10 @@
   <header>
     <h1><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h1>
   </header>
-  <% if @vehicle.image.attached? %>
-    <%= image_tag @vehicle.image, :class => "img-fluid img-thumbnail" %>
+  <% if @vehicle.images.attached? %>
+    <% @vehicle.images.each do |image| %>
+      <%= image_tag image, :class => "img-fluid img-thumbnail" %>
+    <% end %>
   <% else %>
     <%= image_tag 'coming_soon.jpeg', :class => "img-fluid img-thumbnail" %><br>
   <% end %>
@@ -32,5 +34,8 @@
   <p><%= @vehicle.int_color %></p>
   <h4>MPG:</h4>
   <p><%= @vehicle.mpg %></p>
-  <%= link_to "Edit", edit_vehicle_path %>
+  <%= link_to "Edit", edit_vehicle_path %> |
+  <%= link_to "Delete", vehicle_path(@vehicle),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %>
 </article>
