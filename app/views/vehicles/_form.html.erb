@@ -1,5 +1,9 @@
 <%= form_for(@vehicle, multipart: true, data: {'abide' => true})  do |f| %>
-<%= @vehicle.errors.full_messages.to_sentence %>
+<% @vehicle.errors.full_messages.each do |message| %>
+  <div class="alert alert-warning">
+    <%= message %>
+  </div>
+<% end %>
 <p>
   <%= f.label :year %><br>
   <%= f.text_field :year, autofocus: true %>
