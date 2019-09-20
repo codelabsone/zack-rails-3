@@ -13,8 +13,11 @@ class VehiclesController < ApplicationController
 
   def update
     @vehicle = Vehicle.find(params[:id])
-    @vehicle.update(vehicle_params)
-    redirect_to @vehicle
+    if @vehicle.update(vehicle_params)
+      redirect_to @vehicle
+    else
+      render :edit
+    end
   end
 
   def new
@@ -23,8 +26,11 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
-    @vehicle.save
-    redirect_to @vehicle
+    if @vehicle.save
+      redirect_to @vehicle
+    else
+      render :new
+    end
   end
 
   def destroy
