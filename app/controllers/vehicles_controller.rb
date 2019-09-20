@@ -41,6 +41,12 @@ class VehiclesController < ApplicationController
     redirect_to vehicles_url
   end
 
+  def delete_image_attachment
+    @image = ActiveStorage::Blob.find_signed(params[:id])
+    @image.purge
+    redirect_to :back
+  end
+
   private
 
   def vehicle_params

@@ -53,11 +53,11 @@
   <%= f.text_field :body_style %>
 </p>
 <p>
-  <%= f.label :ext_color %><br>
+  <%= f.label :ext_color, "Exterior Color" %><br>
   <%= f.text_field :ext_color %>
 </p>
 <p>
-  <%= f.label :int_color %><br>
+  <%= f.label :int_color, "Interior Color" %><br>
   <%= f.text_field :int_color %>
 </p>
 <p>
@@ -65,10 +65,18 @@
   <%= f.text_field :mpg %>
 </p>
 <div class="field">
-  <%= f.label :image %>
+  <%= f.label :images, "Add Images" %>
   <%= f.file_field :images, multiple: true %>
 </div>
-
+<div class="row">
+  <% @vehicle.images.each do |image| %>
+    <div class="col-md-4 col-xs-6">
+      <%= image_tag image, :class => "img-fluid img-thumbnail" %>
+      <%= button_to "&times;".html_safe, delete_image_attachment_vehicle_url(image.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "img-delete close" %>
+      
+    </div>
+  <% end %>
+</div>
 <p>
   <%= f.submit %> |
   <%= link_to "Cancel", vehicles_path %>
