@@ -13,6 +13,7 @@ class VehiclesController < ApplicationController
 
   def update
     @vehicle = Vehicle.find(params[:id])
+    @vehicle.images.attach(params[:vehicle][:images])
     if @vehicle.update(vehicle_params)
       redirect_to @vehicle
     else
@@ -26,6 +27,7 @@ class VehiclesController < ApplicationController
 
   def create
     @vehicle = Vehicle.new(vehicle_params)
+    @vehicle.images.attach(params[:vehicle][:images])
     if @vehicle.save
       redirect_to @vehicle
     else
@@ -42,7 +44,7 @@ class VehiclesController < ApplicationController
   private
 
   def vehicle_params
-    params.require(:vehicle).permit(:year, :make, :model, :price, :new, :mileage, :transmission, :engine, :drivetrain, :vin, :fuel_type, :body_style, :ext_color, :int_color, :mpg, images: [])
+    params.require(:vehicle).permit(:year, :make, :model, :price, :new, :mileage, :transmission, :engine, :drivetrain, :vin, :fuel_type, :body_style, :ext_color, :int_color, :mpg)
   end
 
 end
