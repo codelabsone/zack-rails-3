@@ -72,8 +72,8 @@
   <% @vehicle.images.each do |image| %>
     <div class="col-md-4 col-xs-6">
       <%= image_tag image, :class => "img-fluid img-thumbnail" %>
-      <%= button_to "&times;".html_safe, delete_image_attachment_vehicle_url(image.signed_id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "img-delete close" %>
-      
+      <%= link_to "&times;".html_safe, delete_image_attachment_vehicle_path(@vehicle, image.id), method: :delete, data: { confirm: 'Are you sure?' }, :class => "img-delete close" %>
+
     </div>
   <% end %>
 </div>

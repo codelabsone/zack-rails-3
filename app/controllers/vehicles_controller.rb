@@ -42,9 +42,11 @@ class VehiclesController < ApplicationController
   end
 
   def delete_image_attachment
-    @image = ActiveStorage::Blob.find_signed(params[:id])
+    @image = ActiveStorage::Attachment.find(params[:format])
+    puts "*" * 50
+    puts @image
     @image.purge
-    redirect_to :back
+    redirect_to edit_vehicle_path
   end
 
   private
