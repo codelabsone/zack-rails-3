@@ -11,3 +11,14 @@
 .img-thumbnail {
   width: 100%;
 }
+
+.carousel-indicators li{
+  font-size: 16px;
+  height: auto;
+  width: 3em;
+  border: none;
+}
+
+.carousel-indicators {
+  margin-bottom: -3em;
+}

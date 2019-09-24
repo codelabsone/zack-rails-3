@@ -7,7 +7,7 @@
       <div class="carousel-inner" role="listbox">
         <% if @vehicle.images.attached? %>
           <% @vehicle.images.each_with_index do |image, index| %>
-            <div class="carousel-item <%= (index == 0) ? 'active' : ''%>">
+            <div class="carousel-item<%= (index == 0) ? ' active' : ''%>">
               <%= image_tag image, :class => "d-block w-100" %>
             </div>
           <% end %>
@@ -25,8 +25,6 @@
       </a>
       <!--/.Controls-->
       <ol class="carousel-indicators">
-        <li data-target="#carousel-thumb" data-slide-to="0" class="active"> <img class="d-block w-100" src="https://mdbootstrap.com/img/Photos/Others/Carousel-thumbs/img%20(88).jpg"
-            class="img-fluid"></li>
             <% if @vehicle.images.attached? %>
               <% @vehicle.images.each_with_index do |image, index| %>
                 <li data-target="#carousel-thumb" data-slide-to="<%= index %>" <%= (index == 0) ? 'class="active"' : '' %>>
