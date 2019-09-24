@@ -43,8 +43,6 @@ class VehiclesController < ApplicationController
 
   def delete_image_attachment
     @image = ActiveStorage::Attachment.find(params[:format])
-    puts "*" * 50
-    puts @image
     @image.purge
     redirect_to edit_vehicle_path
   end
