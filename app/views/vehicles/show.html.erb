@@ -3,9 +3,7 @@
     <h1><%= @vehicle.make %> <%= @vehicle.model %> <%= @vehicle.year %></h1>
   </header>
   <% if @vehicle.images.attached? %>
-    <% @vehicle.images.each do |image| %>
-      <%= image_tag image, :class => "img-fluid img-thumbnail" %>
-    <% end %>
+    <%= render 'carousel' %>
   <% else %>
     <%= image_tag 'coming_soon.jpeg', :class => "img-fluid img-thumbnail" %><br>
   <% end %>
