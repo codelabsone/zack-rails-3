@@ -24,10 +24,10 @@
         <span class="sr-only">Next</span>
       </a>
       <!--/.Controls-->
-      <ol class="carousel-indicators">
+      <ol class="carousel-indicators row">
             <% if @vehicle.images.attached? %>
               <% @vehicle.images.each_with_index do |image, index| %>
-                <li data-target="#carousel-thumb" data-slide-to="<%= index %>" <%= (index == 0) ? 'class="active"' : '' %>>
+                <li data-target="#carousel-thumb" data-slide-to="<%= index %>" class="align-self-center<%= (index == 0) ? ' active' : '' %>">
                 <%= image_tag image, :class => "d-block w-100" %>
                 </li>
               <% end %>
