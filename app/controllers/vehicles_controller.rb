@@ -13,7 +13,9 @@ class VehiclesController < ApplicationController
 
   def update
     @vehicle = Vehicle.find(params[:id])
-    @vehicle.images.attach(params[:vehicle][:images])
+    if params[:vehicle][:images].nil? == false
+      @vehicle.images.attach(params[:vehicle][:images])
+    end
     if @vehicle.update(vehicle_params)
       redirect_to @vehicle
     else
