@@ -1,0 +1,12 @@
+<%= form_for(@user) do |f| %>
+
+<fieldset>
+  <ol>
+    <li class="required">
+      <%= f.label :email %>
+      <%= f.email_field :email, size: 40, autofocus: true %>
+    </li>
+  </ol>
+</fieldset>
+
+<% end %>
