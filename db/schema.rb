@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_17_002442) do
+ActiveRecord::Schema.define(version: 2019_10_03_232306) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -50,6 +50,16 @@ ActiveRecord::Schema.define(version: 2019_09_17_002442) do
     t.integer "vehicle_id"
     t.index ["photo_id"], name: "index_photos_posts_on_photo_id"
     t.index ["vehicle_id"], name: "index_photos_posts_on_vehicle_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone"
+    t.string "job_title"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "vehicles", force: :cascade do |t|
