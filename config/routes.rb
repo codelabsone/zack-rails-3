@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   resource :session
   get "signout", to: "sessions#destroy"
+  get "manage/signin", to: "sessions#new"
 
   resources :users
 

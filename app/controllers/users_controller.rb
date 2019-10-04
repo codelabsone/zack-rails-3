@@ -1,5 +1,5 @@
-class UsersController < ApplicationController
-
+  class UsersController < ApplicationController
+  before_action :require_signin, only: [:show, :index]
   before_action :require_correct_user, only: [:edit, :update]
   # before_action :require_admin_user, only: [:new, :create, :destroy]
 
