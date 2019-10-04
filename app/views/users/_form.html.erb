@@ -1,12 +1,49 @@
 <%= form_for(@user) do |f| %>
 
 <fieldset>
-  <ol>
+  <ul>
+    <li class="required">
+      <%= f.label :name %>
+      <p>
+        <%= f.text_field :name, size: 40, autofocus: true %>
+      </p>
+    </li>
     <li class="required">
       <%= f.label :email %>
-      <%= f.email_field :email, size: 40, autofocus: true %>
+      <p>
+      <%= f.email_field :email, size: 40 %>
+      </p>
     </li>
-  </ol>
+    <li class="required">
+      <%= f.label :phone %>
+      <p>
+      <%= f.telephone_field :phone, size: 40 %>
+      </p>
+    </li>
+    <li class="required">
+      <%= f.label :job_title %>
+      <p>
+      <%= f.text_field :job_title, size: 40 %>
+      </p>
+    </li>
+    <li class="required">
+      <%= f.label :password %>
+      <p>
+      <%= f.password_field :password, size: 40 %>
+      </p>
+    </li>
+    <li class="required">
+      <%= f.label :password_confirmation, "Confirm Password" %>
+      <p>
+      <%= f.password_field :password_confirmation, size: 40 %>
+      </p>
+    </li>
+  </ul>
+  <% if @user.new_record? %>
+    <%= f.submit "Create Account" %>
+  <% else %>
+    <%= f.submit "Edit Account" %>
+  <% end %>
 </fieldset>
 
 <% end %>

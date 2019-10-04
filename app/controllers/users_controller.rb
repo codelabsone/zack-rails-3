@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-  #before_action :require_correct_user, only: [:edit, :update]
+  before_action :require_correct_user, only: [:edit, :update]
   # before_action :require_admin_user, only: [:new, :create, :destroy]
 
   def index
@@ -45,12 +45,12 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :job_title)
   end
 
   def require_correct_user
     @user = User.find(params[:id])
-    unless current_user?(@user) or admin_user?(@user)
+    unless current_user?(@user)
       redirect_to root_url, alert: "You can't do that"
     end
   end
