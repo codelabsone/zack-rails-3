@@ -1,4 +1,7 @@
 class VehiclesController < ApplicationController
+
+  before_action :require_admin, only: [:new, :create, :destroy]
+
   def index
     @vehicles = Vehicle.with_attached_images
   end

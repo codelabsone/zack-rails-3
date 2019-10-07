@@ -1,7 +1,7 @@
   class UsersController < ApplicationController
   before_action :require_signin, only: [:show, :index]
   before_action :require_correct_user, only: [:edit, :update]
-  # before_action :require_admin_user, only: [:new, :create, :destroy]
+  before_action :require_admin, only: [:new, :create, :destroy]
 
   def index
     @users = User.all
@@ -54,9 +54,5 @@
       redirect_to root_url, alert: "You can't do that"
     end
   end
-
-  # def require_admin_user
-  #   unless current_user_admin?
-  # end
 
 end
