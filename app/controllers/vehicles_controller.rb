@@ -52,6 +52,11 @@ class VehiclesController < ApplicationController
     redirect_to edit_vehicle_path
   end
 
+  def search
+    @vehicles = Vehicle.search_for(params[:query])
+    render :index
+  end
+
   private
 
   def vehicle_params

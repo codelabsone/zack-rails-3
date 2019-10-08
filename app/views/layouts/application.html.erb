@@ -28,6 +28,12 @@
               <a class="nav-item nav-link" href="/">Home</a>
               <a class="nav-item nav-link" href="/about">About</a>
             <%= link_to "Inventory", vehicles_path, class: "nav-item nav-link" %>
+            <%= form_tag(search_path) do %>
+            <fieldset>
+              <%= text_field_tag :query, params[:query], placeholder: "Find a vehicle" %>
+              <%= submit_tag "Search" %>
+            </fieldset>
+            <% end %>
             </div>
             <!-- Navbar Right Side -->
             <div class="navbar-nav">

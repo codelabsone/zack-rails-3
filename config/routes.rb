@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   get "about", to: "info_pages#about"
   get "contact", to: "info_pages#contact"
 
+  post "search", to: "vehicles#search", as: "search"
+
 end
