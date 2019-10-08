@@ -1,7 +1,7 @@
   class UsersController < ApplicationController
   before_action :require_signin, only: [:show, :index]
   before_action :require_correct_user, only: [:edit, :update]
-  before_action :require_admin, only: [:new, :create, :destroy]
+  before_action :require_admin, only: [:new, :create, :destroy, :make_admin, :demote_admin]
 
   def index
     @users = User.all
@@ -40,6 +40,20 @@
     @user.destroy
     session[:user_id] = nil
     redirect_to users_url, notice: "Account Deleted"
+  end
+
+  def make_admin
+    @user = User.find(params[:id])
+    @user.admin = true
+    @user.save
+    redirect_to users_path
+  end
+
+  def demote_admin
+    @user = User.find(params[:id])
+    @user.admin = false
+    @user.save
+    redirect_to users_path
   end
 
   private

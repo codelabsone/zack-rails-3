@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get "manage/signin", to: "sessions#new"
 
   resources :users
+  get "users/:id/promote", to: "users#make_admin", as: "promote"
+  get "users/:id/demote", to: "users#demote_admin", as: "demote"
 
   root 'vehicles#index'
   resources :vehicles do
