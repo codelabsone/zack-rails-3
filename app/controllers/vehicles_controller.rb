@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
 
-  before_action :require_admin, only: [:new, :create, :destroy]
+  before_action :require_admin, only: [:new, :create, :destroy, :edit, :update]
 
   def index
     @vehicles = Vehicle.with_attached_images

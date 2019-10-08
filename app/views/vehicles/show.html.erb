@@ -32,8 +32,10 @@
   <p><%= @vehicle.int_color %></p>
   <h4>MPG:</h4>
   <p><%= @vehicle.mpg %></p>
-  <%= link_to "Edit", edit_vehicle_path %> |
-  <%= link_to "Delete", vehicle_path(@vehicle),
-                        method: :delete,
-                        data: { confirm: 'Are you sure?' } %>
+  <% if current_user_admin? %>
+    <%= link_to "Edit", edit_vehicle_path %> |
+    <%= link_to "Delete", vehicle_path(@vehicle),
+                          method: :delete,
+                          data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </article>
