@@ -1,11 +1,6 @@
 class VehiclesController < ApplicationController
-<<<<<<< HEAD
   before_action :require_signin, only: [:mark_sold]
   before_action :require_admin, only: [:new, :create, :destroy, :edit, :update, :mark_unsold]
-=======
-
-  before_action :require_admin, only: [:new, :create, :destroy, :edit, :update]
->>>>>>> 4f61080e98bf27ba7a6a0e0133903a5769c11f1c
 
   def index
     if current_user
