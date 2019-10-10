@@ -9,7 +9,7 @@ class Vehicle < ApplicationRecord
   end
 
   def self.search_for(query)
-      Vehicle.where("year || ' ' || make || ' ' || model || ' ' || transmission || ' ' || engine || ' ' || drivetrain || ' ' || body_style || ' ' || ext_color || ' ' || int_color LIKE ?", "%#{query.squish}%")
+      Vehicle.where("year || ' ' || make || ' ' || model || ' ' || transmission || ' ' || engine || ' ' || drivetrain || ' ' || body_style || ' ' || ext_color  LIKE ?", "%#{query.squish}%")
   end
 
   has_many_attached :images

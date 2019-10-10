@@ -32,6 +32,7 @@
   <p><%= @vehicle.int_color %></p>
   <h4>MPG:</h4>
   <p><%= @vehicle.mpg %></p>
+<<<<<<< HEAD
   <% if current_user %>
     <% if @vehicle.is_sold == false %>
       <%= button_to "Mark As Sold", vehicle_sell_path(@vehicle) %>
@@ -41,6 +42,9 @@
     <% if @vehicle.is_sold %>
       <%= button_to "Mark As Unsold", vehicle_unsell_path(@vehicle) %>
     <% end %>
+=======
+  <% if current_user_admin? %>
+>>>>>>> 4f61080e98bf27ba7a6a0e0133903a5769c11f1c
     <%= link_to "Edit", edit_vehicle_path %> |
     <%= link_to "Delete", vehicle_path(@vehicle),
                           method: :delete,
