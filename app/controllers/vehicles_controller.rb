@@ -1,9 +1,13 @@
 class VehiclesController < ApplicationController
-
-  before_action :require_admin, only: [:new, :create, :destroy]
+  before_action :require_signin, only: [:mark_sold]
+  before_action :require_admin, only: [:new, :create, :destroy, :edit, :update, :mark_unsold]
 
   def index
-    @vehicles = Vehicle.with_attached_images
+    if current_user
+      @vehicles = Vehicle.with_attached_images
+    else
+      @vehicles = Vehicle.where(is_sold: false).with_attached_images
+    end
   end
 
   def show
@@ -55,6 +59,20 @@ class VehiclesController < ApplicationController
   def search
     @vehicles = Vehicle.search_for(params[:query])
     render :index
+  end
+
+  def mark_sold
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.is_sold = true
+    @vehicle.save
+    redirect_to @vehicle
+  end
+
+  def mark_unsold
+    @vehicle = Vehicle.find(params[:id])
+    @vehicle.is_sold = false
+    @vehicle.save
+    redirect_to @vehicle
   end
 
   private

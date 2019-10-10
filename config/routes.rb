@@ -15,6 +15,9 @@ Rails.application.routes.draw do
     end
   end
 
+  post 'vehicles/:id/sold', to: "vehicles#mark_sold", as: "vehicle_sell"
+  post 'vehicles/:id/unsold', to: "vehicles#mark_unsold", as: "vehicle_unsell"
+
   get "about", to: "info_pages#about"
   get "contact", to: "info_pages#contact"
 
