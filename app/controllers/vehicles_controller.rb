@@ -11,6 +11,7 @@ class VehiclesController < ApplicationController
   end
 
   def show
+    @filters =  request.GET
     @vehicle = Vehicle.find(params[:id])
   end
 
